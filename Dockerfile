@@ -1,4 +1,4 @@
-FROM python:3.8y
+FROM python:3.8
 
 ADD main.py .
 
