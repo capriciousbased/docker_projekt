@@ -1,7 +1,7 @@
-FROM python:3.8
-
-ADD main.py .
-
-RUN pip install requests beautifulsoup4
+FROM python:3.11
+WORKDIR /app
+COPY requirments.txt /app
+RUN pip install -r requests.txt
+COPY . /app
 
 CMD ["python", "./main.py"]
