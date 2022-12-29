@@ -2,13 +2,13 @@ from flask import Flask
 from redis import Redis
 
 app = Flask(__name__)
-redis = Redis(host='redis', port=6397)
+redis = Redis(host='redis', port=6379)
 
 @app.route('/')
-def index():
+def hello():
     redis.incr('hits')
-    counter = str(redis.get('hits'), 'utf-8')
-    return 'Welcome to the Web App with Python Flask!, This webpage has been viewed {} times.\n'.format(counter)
+    counter = str(redis.get('hits'),'utf-8')
+    return "Welcome to Docker Compose with flask and Redis!, This webpage has been viewed "+counter+" time(s)"
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host="0.0.0.0", debug=True)
